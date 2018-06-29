@@ -1,0 +1,14 @@
+[Unit]
+Description=Jekyll Watch Directory Service
+
+[Service]
+WorkingDirectory=/home/CHANGE_HERE/microblog
+Environment="JEKYLL_ENV=production"
+ExecStart=/usr/bin/bundle exec jekyll build --watch --source /home/CHANGE_HERE/microblog
+ExecStop=/usr/bin/pkill -f jekyll
+Restart=always
+TimeoutStartSec=60
+RestartSec=60
+
+[Install]
+WantedBy=default.target
