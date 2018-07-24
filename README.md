@@ -49,6 +49,13 @@ and further
 
 In this way, a new post can be created with minimal yaml frontmatter, i.e. only the 'date:' line is needed. Using the 'title: ""' trick creates microblog-like entries in that they have no title (this only works if you explicitly set an empty title).
 
+On the server, in the checked out working copy directory, we have the following command running:  
+
+	$ bundle exec jekyll build --watch
+
+which means that as soon as a new entry appears (via the post-receive hook above), the jekyll site rebuilds itself.
+
+
 ### on the client
 
 #### doing it manually
@@ -63,12 +70,6 @@ Now the workflow would be something like (on whatever client that has a checkout
 	$ git add 1971-01-01-01.md
 	$ git commit -a -m 01
 	$ git push
-
-On the server, in the checked out working copy directory, we have the following command running:  
-
-	$ bundle exec jekyll build --watch
-
-which means that as soon as a new entry appears (via the post-receive hook above), the jekyll site rebuilds itself.
 
 
 #### creation via shell script
