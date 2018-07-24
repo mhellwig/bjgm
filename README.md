@@ -64,7 +64,7 @@ Now the workflow would be something like (on whatever client that has a checkout
 	$ git commit -a -m 01
 	$ git push
 
-On the server, in the checked out working copy directory, wehave the following command running:  
+On the server, in the checked out working copy directory, we have the following command running:  
 
 	$ bundle exec jekyll build --watch
 
