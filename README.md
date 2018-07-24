@@ -55,6 +55,48 @@ On the server, in the checked out working copy directory, we have the following 
 
 which means that as soon as a new entry appears (via the post-receive hook above), the jekyll site rebuilds itself.
 
+#### systemd for jekyll
+
+What does "we have the following command running" mean? For starters, and in order to get everything
+set up in the first place, just use the tmux (screen would work as well)
+instance that you have running perpetually anyway (you do, don't you?) and start that jekyll command in
+there. 
+
+Not that I'm a big believer or proponent of systemd,
+but in German, we have a term called "Die normative Kraft des Faktischen"
+which can be translated as "the normative power of the factual". So .. yeah.
+Whatever. It exists, it is the default on most distros, I don't care enough to
+fight some [rearguard action][] or whatever.
+
+Therefore:
+
+Step one, copy the file [jekyll.service](jekyll.service) to
+
+	/home/<username>/.config/systemd/user/
+
+This can now be run with
+
+	$ systemctl --user start jekyll
+
+and the output checked with
+
+	$ journalctl --user -f -u jekyll
+
+If everything looks ok, make the service permanent with
+
+	$ systemctl --user enable jekyll
+
+This would still only start the jekyll process once one logs into the system
+and also kill it once one logs out. In order to make it truly permanent, the
+admin user needs to run the command
+
+	% loginctl enable-linger <username>
+
+which causes our jekyll unit to be run on bootup and killed on shutdown.
+
+
+
+
 
 ### on the client
 
@@ -79,7 +121,19 @@ Doing those steps above manually is a PITA. Therefore, you can use [mb_new_entry
 
 
 
+## References
+
+Documents that helped me figure this out:
+
+* a page at [archlinux wiki][]
+* this [blog article][], where somebody does something similar, but as a
+  system-wide service (which I explicitly wanted to avoid)
+* and of course a page at [unix.stackexchange][]
 
 
+[rearguard action]: https://devuan.org/
 [termux]: https://termux.com/
+[archlinux wiki]: https://wiki.archlinux.org/index.php/Systemd/User#Writing_user_units
+[blog article]: https://yuan3y.com/2017/09/make-jekyll-serve-a-systemd-service/
+[unix.stackexchange]: https://unix.stackexchange.com/questions/200654/executing-chdir-before-starting-systemd-service
 [jekyll]: https://jekyllrb.com/
