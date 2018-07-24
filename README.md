@@ -49,6 +49,8 @@ and further
 
 In this way, a new post can be created with minimal yaml frontmatter, i.e. only the 'date:' line is needed. Using the 'title: ""' trick creates microblog-like entries in that they have no title (this only works if you explicitly set an empty title).
 
+### on the client
+
 #### doing it manually
 
 Now the workflow would be something like (on whatever client that has a checkout of the git repository above)  
@@ -68,9 +70,10 @@ On the server, in the checked out working copy directory, wehave the following c
 
 which means that as soon as a new entry appears (via the post-receive hook above), the jekyll site rebuilds itself.
 
+
 #### creation via shell script
 
-Doing those steps above manually is a PITA. Therefore, you can use <mb_new_entry.sh> instead. Put this somewhere in your $PATH (like ~/bin) and running this will go through the steps outlined above for you.
+Doing those steps above manually is a PITA. Therefore, you can use [mb_new_entry.sh](mb_new_entry.sh) instead. Put this somewhere in your $PATH (like ~/bin) and running this will go through the steps outlined above for you.
 
 
 
