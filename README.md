@@ -119,6 +119,12 @@ Now the workflow would be something like (on whatever client that has a checkout
 Doing those steps above manually is a PITA. Therefore, you can use [mb_new_entry.sh](mb_new_entry.sh) instead. Put this somewhere in your $PATH (like ~/bin) and running this will go through the steps outlined above for you.
 
 
+## TODO
+
+features that should theoretically be easily implemented and also I want them:
+
+* a solution for termux' "share to termux"-feature that creates a microblog-post with a photo
+* more vim trickery for creating posts with pictures (think like vim-latex works re jumping to the next necessary point in a file)
 
 
 ## References
