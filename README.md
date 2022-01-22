@@ -130,6 +130,7 @@ features that should theoretically be easily implemented and also I want them:
 
 * a solution for termux' "share to termux"-feature that creates a microblog-post with a photo
 * more vim trickery for creating posts with pictures (think like vim-latex works re jumping to the next necessary point in a file)
+* adding this tonight: a secondary script for posting content with pictures that also makes a correct toot of it including an image description
 
 
 ## References
