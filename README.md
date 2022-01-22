@@ -11,6 +11,8 @@ As of 2022-01-22, the script also includes a line to post the same content to
 Mastodon, provided the program <https://github.com/ihabunek/toot> is set up
 correctly with an account.
 
+There is also now a second script for creating a post with an added image.
+
 
 ## how to use it
 
@@ -123,6 +125,28 @@ Now the workflow would be something like (on whatever client that has a checkout
 
 Doing those steps above manually is a PITA. Therefore, you can use [mb_new_entry.sh](mb_new_entry.sh) instead. Put this somewhere in your $PATH (like ~/bin) and running this will go through the steps outlined above for you.
 
+## the thing with the picture
+
+If we put a jpg in the images subfolder and run
+
+	$ git add ~/microblog/images/<that_file.jpg>
+
+and then create a slightly different markdown file, we post with a picture. We need the following syntax for that:
+
+	![some title]({{"images/that_file.jpg"|absolute_url}} "the image description goes here")
+
+so the new script [mb_new_pic.sh](mb_new_pic.sh) does just that.
+
+Using toot works here as well, we just need to cut up the markdown file into variables and feed those into toot. This works like so:
+
+	$ imagefile=$(grep absolute_url $filename | cut -d \" -f 2);
+	$ description=$(grep absolute_url $filename | cut -d \" -f 4);
+	$ toot_txt=$(sed -n -e 4p $filename);
+
+	$ # provided we are in the correct directory...
+	$ /usr/bin/toot post -m $imagefile -d "$description" "$toot_txt";
+
+This is also included in the mb_new_pic.sh script.
 
 ## TODO
 
@@ -130,7 +154,6 @@ features that should theoretically be easily implemented and also I want them:
 
 * a solution for termux' "share to termux"-feature that creates a microblog-post with a photo
 * more vim trickery for creating posts with pictures (think like vim-latex works re jumping to the next necessary point in a file)
-* adding this tonight: a secondary script for posting content with pictures that also makes a correct toot of it including an image description
 
 
 ## References
@@ -141,6 +164,7 @@ Documents that helped me figure this out:
 * this [blog article][], where somebody does something similar, but as a
   system-wide service (which I explicitly wanted to avoid)
 * and of course a page at [unix.stackexchange][]
+* [Leah](https://github.com/leahneukirchen) helped with the sed line for the mb_new_pic.sh script
 
 An example created in this way:
 
