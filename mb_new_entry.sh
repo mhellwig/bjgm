@@ -37,6 +37,11 @@ git add $filename;
 git commit -a -m $iterator;
 git push;
 
+# now make a toot of it.
+# this needs the program https://github.com/ihabunek/toot
+# and it needs to be correctly set up with an account beforehand
+tail -n +4 $filename | toot post;
+
 echo "
 all done with $filename;
 ";

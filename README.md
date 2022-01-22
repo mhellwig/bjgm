@@ -7,6 +7,10 @@ there is a bash script named 'mb_new_entry.sh' that works in Unixoid systems
 [termux][] environment). This works together with a [jekyll][] instance hosted
 wherever, provided this wherever can be pushed to via git.
 
+As of 2022-01-22, the script also includes a line to post the same content to
+Mastodon, provided the program <https://github.com/ihabunek/toot> is set up
+correctly with an account.
+
 
 ## how to use it
 
@@ -112,6 +116,7 @@ Now the workflow would be something like (on whatever client that has a checkout
 	$ git add 1971-01-01-01.md
 	$ git commit -a -m 01
 	$ git push
+	$ tail -n +4 1971-01-01-01.md | toot post
 
 
 #### creation via shell script
