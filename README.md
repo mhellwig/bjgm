@@ -141,6 +141,10 @@ Documents that helped me figure this out:
   system-wide service (which I explicitly wanted to avoid)
 * and of course a page at [unix.stackexchange][]
 
+An example created in this way:
+
+* my own [microblog](https://fnanp.in-ulm.de/microblog/)
+
 
 [rearguard action]: https://devuan.org/
 [termux]: https://termux.com/
