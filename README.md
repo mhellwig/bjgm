@@ -168,7 +168,7 @@ Documents/people that helped me figure this out:
 
 An example created in this way:
 
-* my own [microblog](https://fnanp.in-ulm.de/microblog/)
+* my own [microblog](https://fnanp.in-ulm.de/microblog/). The toot thing posts to <https://chaos.social/@das_aug>.
 
 
 [rearguard action]: https://devuan.org/
