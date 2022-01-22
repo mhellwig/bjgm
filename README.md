@@ -158,7 +158,7 @@ features that should theoretically be easily implemented and also I want them:
 
 ## References
 
-Documents that helped me figure this out:
+Documents/people that helped me figure this out:
 
 * a page at [archlinux wiki][]
 * this [blog article][], where somebody does something similar, but as a
