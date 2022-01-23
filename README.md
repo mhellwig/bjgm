@@ -137,6 +137,8 @@ and then create a slightly different markdown file, we post with a picture. We n
 
 so the new script [mb_new_pic.sh](mb_new_pic.sh) does just that.
 
+I have added markers into the file prepared for vim. Meaning you can directly start typing your post text. Then you hit ctrl+j and vim will jump to the next marker (a string that looks like \<+this+\>) and highlight it. This means you can directly continue typing and the marker will be overwritten with what you type. Then you hit ctrl+j again and so forth untill you get to the end of the file.
+
 Using toot works here as well, we just need to cut up the markdown file into variables and feed those into toot. This works like so:
 
 	$ imagefile=$(grep absolute_url $filename | cut -d \" -f 2);
@@ -153,7 +155,6 @@ This is also included in the mb_new_pic.sh script.
 features that should theoretically be easily implemented and also I want them:
 
 * a solution for termux' "share to termux"-feature that creates a microblog-post with a photo
-* more vim trickery for creating posts with pictures (think like vim-latex works re jumping to the next necessary point in a file)
 
 
 ## References

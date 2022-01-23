@@ -25,12 +25,15 @@ while [ -f $filename ]
 done
 
 # pre-populate the file
-# you can remove the all-caps helper text ..
+# note on the <+markers+>: you can just start typing and enter your post
+# text. Then hit ctrl+j and vim jumps to the the next marker and 
+# highlights it, so if you continue typing it'll be overwritten. Then
+# hit ctrl+j again and so forth
 echo "---
 date: $now
 ---
-TEXT GOES HERE
-![PIC TITLE GOES HERE]({{\"images/PIC FILENAME GOES HERE\"|absolute_url}} \"PIC DESCRIPTION GOES HERE\")
+  
+![<+title+>]({{\"images/<+filename+>\"|absolute_url}} \"<+description+>\")
 " > $filename;
 
 # start editing
