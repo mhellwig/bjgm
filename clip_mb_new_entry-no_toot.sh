@@ -44,8 +44,10 @@ git add $filename;
 git commit -a -m $iterator;
 git push;
 
-# put post text into clipboard
+# put post text into clipboard, linux version
 tail -n +4 $filename | xclip -r -selection clipboard
+# if you're on termux, comment the previous line and uncomment the following one:
+# termux-clipboard-set $(tail -n +4 $filename)
 
 echo;
 echo all done with $filename;
